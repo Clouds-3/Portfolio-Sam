@@ -1,978 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Praveen Samuvel A — Full Stack Developer | Cloud</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --bg: #050a14;
-    --surface: #0c1525;
-    --surface2: #111d30;
-    --accent: #00d4ff;
-    --accent2: #7c3aed;
-    --accent3: #06ffa5;
-    --text: #e8edf5;
-    --muted: #6b7fa3;
-    --border: rgba(0,212,255,0.15);
-    --glow: 0 0 30px rgba(0,212,255,0.3);
-    --glow2: 0 0 30px rgba(124,58,237,0.4);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Space Grotesk', sans-serif;
-    overflow-x: hidden;
-    line-height: 1.7;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Praveen Samuvel A — Full Stack Developer, MCA Graduate 2025, React.js & PHP Expert, Chennai" />
+  <title>Praveen Samuvel A — Full Stack Developer</title>
 
-  /* ─── CANVAS BG ─── */
-  #bg-canvas {
-    position: fixed; inset: 0; z-index: 0;
-    pointer-events: none;
-  }
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Praveen Samuvel A — Full Stack Developer" />
+  <meta property="og:description" content="MCA Graduate (2025) building secure, scalable web apps with React.js, PHP & a Cyber Security mindset. Open to full-time roles." />
+  <meta property="og:image" content="assets/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Praveen Samuvel A — Full Stack Developer" />
+  <meta name="twitter:description" content="MCA Graduate (2025) building secure, scalable web apps with React.js, PHP & a Cyber Security mindset." />
+  <meta name="twitter:image" content="assets/og-preview.png" />
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 5%;
-    background: rgba(5,10,20,0.75);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px;
-    color: var(--accent);
-    font-family: 'Fira Code', monospace;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted); text-decoration: none; font-size: 0.88rem;
-    font-weight: 500; letter-spacing: 0.3px; transition: color 0.25s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1.5px;
-    background: var(--accent); transition: width 0.3s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    padding: 0.5rem 1.4rem; border-radius: 6px; font-size: 0.85rem;
-    font-weight: 600; background: transparent;
-    border: 1.5px solid var(--accent); color: var(--accent);
-    cursor: pointer; transition: all 0.25s; text-decoration: none;
-  }
-  .nav-cta:hover { background: var(--accent); color: var(--bg); box-shadow: var(--glow); }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  /* ─── SECTIONS ─── */
-  section { position: relative; z-index: 1; }
-
-  /* ─── HERO ─── */
-  #hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 8rem 5% 5rem;
-    overflow: hidden;
-  }
-  .hero-inner { max-width: 760px; }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: 'Fira Code', monospace; font-size: 0.8rem;
-    color: var(--accent3); margin-bottom: 1.5rem;
-    padding: 0.35rem 0.9rem; border: 1px solid rgba(6,255,165,0.25);
-    border-radius: 99px; background: rgba(6,255,165,0.06);
-  }
-  .hero-tag::before { content: '▶'; font-size: 0.65rem; }
-  h1.hero-name {
-    font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700;
-    line-height: 1.05; letter-spacing: -2px; margin-bottom: 0.4rem;
-  }
-  h1.hero-name span { color: var(--accent); }
-  .hero-role {
-    font-family: 'Fira Code', monospace; font-size: 1.15rem;
-    color: var(--muted); margin-bottom: 1.6rem;
-  }
-  .hero-role .cursor {
-    display: inline-block; width: 2px; height: 1.1em;
-    background: var(--accent); margin-left: 2px;
-    animation: blink 1s step-end infinite; vertical-align: middle;
-  }
-  @keyframes blink { 50% { opacity: 0; } }
-  .hero-desc {
-    font-size: 1rem; color: var(--muted); max-width: 560px;
-    margin-bottom: 2.2rem; line-height: 1.8;
-  }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    padding: 0.75rem 2rem; border-radius: 8px; font-size: 0.92rem;
-    font-weight: 600; background: var(--accent); color: var(--bg);
-    border: none; cursor: pointer; transition: all 0.3s;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.4); }
-  .btn-secondary {
-    padding: 0.75rem 2rem; border-radius: 8px; font-size: 0.92rem;
-    font-weight: 600; background: transparent;
-    border: 1.5px solid var(--border); color: var(--text);
-    cursor: pointer; transition: all 0.3s; text-decoration: none;
-    display: inline-block;
-  }
-  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap;
-  }
-  .stat { display: flex; flex-direction: column; }
-  .stat-val {
-    font-size: 2rem; font-weight: 700; color: var(--accent);
-    font-family: 'Fira Code', monospace; line-height: 1;
-  }
-  .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.5px; text-transform: uppercase; }
-
-  /* 3D floating card in hero */
-  .hero-card {
-    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-    width: 320px; perspective: 1000px; display: none;
-  }
-  @media(min-width: 1024px) { .hero-card { display: block; } }
-  .hero-card-inner {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px; padding: 2rem;
-    transform-style: preserve-3d;
-    animation: float3d 6s ease-in-out infinite;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-    position: relative; overflow: hidden;
-  }
-  .hero-card-inner::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-  }
-  @keyframes float3d {
-    0%,100% { transform: rotateX(8deg) rotateY(-8deg) translateY(0); }
-    25% { transform: rotateX(-4deg) rotateY(6deg) translateY(-12px); }
-    50% { transform: rotateX(6deg) rotateY(10deg) translateY(-6px); }
-    75% { transform: rotateX(-6deg) rotateY(-4deg) translateY(-16px); }
-  }
-  .card-avatar {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; font-weight: 700; color: white; margin-bottom: 1rem;
-  }
-  .card-name { font-weight: 700; font-size: 1rem; }
-  .card-title { font-size: 0.78rem; color: var(--accent); margin-bottom: 1rem; font-family: 'Fira Code', monospace; }
-  .card-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .chip {
-    padding: 0.25rem 0.65rem; border-radius: 99px; font-size: 0.7rem;
-    background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2);
-    color: var(--accent); font-family: 'Fira Code', monospace;
-  }
-  .chip.p { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.25); color: #a78bfa; }
-  .chip.g { background: rgba(6,255,165,0.08); border-color: rgba(6,255,165,0.2); color: var(--accent3); }
-
-  /* ─── SECTION WRAPPER ─── */
-  .section-wrap { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
-  .section-label {
-    font-family: 'Fira Code', monospace; font-size: 0.78rem;
-    color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem;
-  }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 200px; }
-  h2.section-title {
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700;
-    letter-spacing: -1px; margin-bottom: 1rem; line-height: 1.2;
-  }
-  h2.section-title em { color: var(--accent); font-style: normal; }
-
-  /* ─── ABOUT ─── */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem; }
-  @media(max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
-  .about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; }
-  .about-text strong { color: var(--text); }
-  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
-  .highlight-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1.2rem; border-radius: 12px; background: var(--surface);
-    border: 1px solid var(--border); transition: all 0.3s;
-  }
-  .highlight-item:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: var(--glow); }
-  .hi-icon {
-    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-    background: rgba(0,212,255,0.1); display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
-  }
-  .hi-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
-  .hi-text p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
-
-  /* ─── SKILLS ─── */
-  #skills { background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 50%, var(--bg) 100%); }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .skill-card {
-    padding: 1.6rem; border-radius: 14px;
-    background: var(--surface2); border: 1px solid var(--border);
-    transition: all 0.35s; position: relative; overflow: hidden;
-  }
-  .skill-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    transform: scaleX(0); transition: transform 0.35s;
-  }
-  .skill-card:hover::before { transform: scaleX(1); }
-  .skill-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
-  .skill-cat { font-size: 0.72rem; font-family: 'Fira Code', monospace; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; }
-  .skill-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .skill-tag {
-    padding: 0.3rem 0.75rem; border-radius: 6px; font-size: 0.78rem;
-    font-family: 'Fira Code', monospace; font-weight: 500;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-    color: var(--text); transition: all 0.2s;
-  }
-  .skill-tag:hover { background: rgba(0,212,255,0.12); border-color: rgba(0,212,255,0.3); color: var(--accent); }
-  .skill-bar-wrap { margin-top: 1.5rem; }
-  .skill-bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
-  .skill-bar-name { font-size: 0.78rem; color: var(--muted); width: 100px; flex-shrink: 0; }
-  .skill-bar-track { flex: 1; height: 5px; background: rgba(255,255,255,0.07); border-radius: 99px; overflow: hidden; }
-  .skill-bar-fill {
-    height: 100%; border-radius: 99px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    width: 0; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .skill-bar-pct { font-size: 0.7rem; color: var(--accent); font-family: 'Fira Code', monospace; width: 34px; text-align: right; }
-
-  /* ─── EXPERIENCE ─── */
-  .exp-timeline { margin-top: 3rem; position: relative; padding-left: 2rem; }
-  .exp-timeline::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1.5px;
-    background: linear-gradient(180deg, var(--accent), var(--accent2), transparent);
-  }
-  .exp-item {
-    position: relative; margin-bottom: 2.5rem;
-    padding: 1.8rem; border-radius: 14px;
-    background: var(--surface); border: 1px solid var(--border);
-    transition: all 0.35s;
-  }
-  .exp-item::before {
-    content: ''; position: absolute; left: -2.5rem; top: 1.8rem;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--accent); border: 2px solid var(--bg);
-    box-shadow: 0 0 12px var(--accent);
-  }
-  .exp-item:hover { border-color: var(--accent); box-shadow: var(--glow); transform: translateX(4px); }
-  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem; }
-  .exp-role { font-size: 1.05rem; font-weight: 700; }
-  .exp-period {
-    font-size: 0.75rem; font-family: 'Fira Code', monospace;
-    color: var(--accent); padding: 0.2rem 0.65rem;
-    background: rgba(0,212,255,0.08); border-radius: 99px;
-    border: 1px solid rgba(0,212,255,0.2);
-  }
-  .exp-company { font-size: 0.85rem; color: var(--accent2); margin-bottom: 0.4rem; font-weight: 500; }
-  .exp-location { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; }
-  .exp-bullets { list-style: none; }
-  .exp-bullets li {
-    font-size: 0.88rem; color: var(--muted); padding: 0.35rem 0;
-    padding-left: 1.2rem; position: relative; line-height: 1.65;
-  }
-  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent3); font-size: 0.75rem; top: 0.42rem; }
-  .award-badge {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    margin-top: 0.8rem; padding: 0.3rem 0.85rem;
-    background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(245,158,11,0.05));
-    border: 1px solid rgba(251,191,36,0.3); border-radius: 99px;
-    font-size: 0.75rem; color: #fbbf24; font-weight: 600;
-  }
-
-  /* ─── PROJECTS ─── */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .project-card {
-    padding: 2rem; border-radius: 16px;
-    background: var(--surface); border: 1px solid var(--border);
-    transition: all 0.4s; position: relative; overflow: hidden;
-    cursor: pointer;
-  }
-  .project-card::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at 70% 20%, rgba(0,212,255,0.07) 0%, transparent 60%);
-    opacity: 0; transition: opacity 0.4s;
-  }
-  .project-card:hover::after { opacity: 1; }
-  .project-card:hover { border-color: var(--accent); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-  .proj-icon {
-    width: 50px; height: 50px; border-radius: 12px;
-    background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(124,58,237,0.2));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin-bottom: 1.2rem;
-    border: 1px solid var(--border);
-  }
-  .proj-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
-  .proj-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
-  .proj-metrics { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
-  .metric {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.75rem; color: var(--accent3); font-family: 'Fira Code', monospace;
-  }
-  .metric::before { content: '✓'; font-size: 0.7rem; }
-  .proj-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .stack-tag {
-    padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.7rem;
-    font-family: 'Fira Code', monospace; background: rgba(124,58,237,0.12);
-    border: 1px solid rgba(124,58,237,0.25); color: #a78bfa;
-  }
-
-  /* ─── EDUCATION ─── */
-  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .edu-card {
-    padding: 1.8rem; border-radius: 14px;
-    background: var(--surface); border: 1px solid var(--border);
-    transition: all 0.35s; position: relative; overflow: hidden;
-  }
-  .edu-card:hover { border-color: var(--accent2); transform: translateY(-4px); box-shadow: var(--glow2); }
-  .edu-year {
-    font-family: 'Fira Code', monospace; font-size: 0.72rem;
-    color: var(--accent3); margin-bottom: 0.6rem;
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-  .edu-degree { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.8rem; }
-  .gpa-badge {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    padding: 0.3rem 0.75rem; border-radius: 8px; font-size: 0.78rem;
-    background: rgba(6,255,165,0.08); border: 1px solid rgba(6,255,165,0.2);
-    color: var(--accent3); font-family: 'Fira Code', monospace; font-weight: 600;
-  }
-
-  /* ─── CERTIFICATIONS ─── */
-  .cert-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-  .cert-item {
-    padding: 1rem 1.4rem; border-radius: 10px;
-    background: var(--surface); border: 1px solid var(--border);
-    transition: all 0.3s; display: flex; align-items: center; gap: 0.8rem;
-  }
-  .cert-item:hover { border-color: var(--accent); box-shadow: var(--glow); }
-  .cert-icon { font-size: 1.3rem; }
-  .cert-name { font-size: 0.85rem; font-weight: 500; }
-  .cert-org { font-size: 0.72rem; color: var(--muted); }
-
-  /* ─── HR TIPS ─── */
-  #hr-tips { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(0,212,255,0.05)); }
-  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .tip-card {
-    padding: 1.6rem; border-radius: 14px;
-    background: var(--surface); border: 1px solid rgba(124,58,237,0.2);
-    transition: all 0.3s; position: relative;
-  }
-  .tip-card:hover { border-color: var(--accent2); transform: translateY(-4px); box-shadow: var(--glow2); }
-  .tip-num {
-    font-size: 2.5rem; font-weight: 700; font-family: 'Fira Code', monospace;
-    color: rgba(124,58,237,0.2); line-height: 1; margin-bottom: 0.6rem;
-  }
-  .tip-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
-  .tip-body { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
-  .tip-tag {
-    display: inline-block; margin-top: 0.8rem;
-    padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.7rem;
-    background: rgba(124,58,237,0.15); color: #a78bfa; font-weight: 500;
-  }
-
-  /* ─── CONTACT ─── */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
-  @media(max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
-  .contact-info p { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
-  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
-  .contact-item {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1rem 1.2rem; border-radius: 10px;
-    background: var(--surface); border: 1px solid var(--border);
-    text-decoration: none; color: var(--text); transition: all 0.3s;
-  }
-  .contact-item:hover { border-color: var(--accent); box-shadow: var(--glow); color: var(--accent); }
-  .ci-icon {
-    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-    background: rgba(0,212,255,0.1); display: flex; align-items: center;
-    justify-content: center; font-size: 1.1rem;
-  }
-  .ci-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .ci-val { font-size: 0.88rem; font-weight: 500; }
-  .contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-  .form-group label { font-size: 0.75rem; color: var(--muted); font-weight: 500; letter-spacing: 0.5px; }
-  .form-group input, .form-group textarea {
-    background: var(--bg); border: 1px solid var(--border); color: var(--text);
-    padding: 0.7rem 1rem; border-radius: 8px; font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.88rem; outline: none; transition: border-color 0.25s, box-shadow 0.25s;
-    resize: none;
-  }
-  .form-group input:focus, .form-group textarea:focus {
-    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
-  }
-  .form-group textarea { min-height: 120px; }
-  .btn-submit {
-    width: 100%; padding: 0.85rem; border-radius: 8px; font-size: 0.92rem;
-    font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: white; border: none; cursor: pointer; transition: all 0.3s;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.35); }
-
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 2rem 5%; text-align: center;
-    border-top: 1px solid var(--border); position: relative; z-index: 1;
-  }
-  footer p { font-size: 0.8rem; color: var(--muted); }
-  footer span { color: var(--accent); }
-
-  /* ─── SCROLL REVEAL ─── */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ─── MOBILE ─── */
-  @media(max-width: 600px) {
-    .nav-links { display: none; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.5rem; }
-  }
-
-  /* ─── SCROLLBAR ─── */
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
-</style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">&lt;PS /&gt;</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="#resume">Download CV</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner reveal">
-    <div class="hero-tag">Available for Full-Time Roles</div>
-    <h1 class="hero-name">Praveen<br/><span>Samuvel A</span></h1>
-    <div class="hero-role">
-      <span id="typed-role"></span><span class="cursor"></span>
-    </div>
-    <p class="hero-desc">MCA Graduate (2025) | Full Stack Developer crafting secure, scalable web applications with React.js, PHP, and solid cybersecurity foundations. Internship-proven, award-winning, ready to ship.</p>
-    <div class="hero-btns">
-      <a class="btn-primary" href="#contact">Get in Touch</a>
-      <a class="btn-secondary" href="#projects">View Projects</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-val">5+</span><span class="stat-label">Apps Built</span></div>
-      <div class="stat"><span class="stat-val">2</span><span class="stat-label">Internships</span></div>
-      <div class="stat"><span class="stat-val">0</span><span class="stat-label">Security Incidents</span></div>
-      <div class="stat"><span class="stat-val">⭐</span><span class="stat-label">Star Performer</span></div>
-    </div>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">initializing...</div>
   </div>
-  <div class="hero-card">
-    <div class="hero-card-inner">
-      <div class="card-avatar">PS</div>
-      <div class="card-name">Praveen Samuvel A</div>
-      <div class="card-title">// Full Stack Developer</div>
-      <div class="card-chips">
-        <span class="chip">React.js</span>
-        <span class="chip">TypeScript</span>
-        <span class="chip p">PHP</span>
-        <span class="chip p">CodeIgniter</span>
-        <span class="chip g">MySQL</span>
-        <span class="chip g">Cyber Security</span>
-        <span class="chip">REST APIs</span>
-        <span class="chip p">Firebase</span>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scroll-progress" style="position:fixed; top:0; left:0; height:3px; width:0%; z-index:9999;
+       background:linear-gradient(90deg, var(--accent, #6366f1), var(--accent-2, #22d3ee));
+       transition:width 0.1s ease-out;"></div>
+
+  <!-- PARTICLE CANVAS -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <span class="mobile-close" id="mobile-close">✕</span>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1FnW_2ujOb0gyFWokFIcsoI9aXSmkoxJ0/view?usp=sharing" target="_blank" rel="noopener">⬇ Download CV</a>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a class="nav-logo" href="#hero">&lt;PS<span>/</span>&gt;</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a class="nav-cta" href="https://drive.google.com/file/d/1FnW_2ujOb0gyFWokFIcsoI9aXSmkoxJ0/view?usp=sharing" target="_blank" rel="noopener">⬇ Resume</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════ -->
+  <section id="hero">
+    <!-- LEFT TEXT -->
+    <div class="hero-left reveal">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Open to Full-Time Roles &amp; Internships
+      </div>
+
+      <h1 class="hero-name">
+        <span class="first">Praveen</span>
+        <span class="last">Samuvel A</span>
+      </h1>
+
+      <div class="hero-role">
+        <span id="typed-role"></span><span class="cursor"></span>
+      </div>
+
+      <p class="hero-desc">
+        MCA Graduate (2025) crafting <strong style="color:var(--text)">secure, scalable web applications</strong>
+        with React.js, PHP &amp; a Cyber Security mindset.
+        Internship-proven · Award-winning · Ready to ship.
+      </p>
+
+      <div class="hero-btns">
+        <a class="btn-primary" href="#contact">Get in Touch →</a>
+        <a class="btn-secondary" href="#projects">View Projects</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-val" data-count="5" data-suffix="+">0+</span>
+          <span class="stat-label">Apps Built</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val" data-count="2">0</span>
+          <span class="stat-label">Internships</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val" style="font-size:1.6rem;">0</span>
+          <span class="stat-label">Security Incidents</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val" style="font-size:1.6rem;">⭐</span>
+          <span class="stat-label">Star Performer</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-wrap">
-    <div class="section-label">Who I Am</div>
-    <h2 class="section-title">Turning Ideas into <em>Secure</em> Digital Products</h2>
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <p>I'm a <strong>Full Stack Developer and MCA graduate (2025)</strong> based in Chennai, Tamil Nadu. I combine front-end precision with back-end robustness, always with a security-first mindset shaped by my Diploma in Cyber Security.</p>
-        <p>During my internships I shipped production features, built real-time appointment platforms, and received the <strong>Star Performance Award</strong> — not by cutting corners, but by writing clean code and caring deeply about what I ship.</p>
-        <p>I'm fluent in <strong>React.js (TypeScript)</strong>, PHP, and CodeIgniter MVC, and I apply CSRF protection, RBAC, and SQL injection prevention as default practices, not afterthoughts.</p>
-      </div>
-      <div class="about-highlights">
-        <div class="highlight-item">
-          <div class="hi-icon">🛡️</div>
-          <div class="hi-text">
-            <h4>Security-First Approach</h4>
-            <p>Diploma in Cyber Security; zero vulnerabilities and zero security incidents across all deployed projects.</p>
+    <!-- RIGHT — PHOTO + ANIMATIONS -->
+    <div class="hero-right reveal-right">
+      <!-- Employee working animation -->
+      <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:1.5rem;">
+
+        <!-- PHOTO ORB -->
+        <div class="photo-orbit">
+          <!-- Orbit rings -->
+          <div class="orbit-ring orbit-ring-1"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring orbit-ring-2"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring orbit-ring-3"><div class="orbit-dot"></div></div>
+
+          <!-- Photo glow -->
+          <div class="photo-glow"></div>
+
+          <!-- Photo frame -->
+          <div class="photo-hex-wrap">
+            <div class="photo-frame">
+              <img id="hero-photo" src="" alt="Praveen Samuvel A" />
+            </div>
+          </div>
+
+          <!-- Tech badges -->
+          <div class="tech-badge" style="--tx:-50%;">React.js</div>
+          <div class="tech-badge" style="--tx:0;">PHP</div>
+          <div class="tech-badge" style="--tx:-50%;">TypeScript</div>
+          <div class="tech-badge" style="--tx:0;">MySQL</div>
+
+          <!-- Floating award card -->
+          <div class="hero-floating-card">
+            <div class="card-award">
+              <div class="card-award-icon">🏆</div>
+              <div>
+                <div class="card-award-text">Star Performer</div>
+                <div class="card-award-sub">Queen Bugs Technology · 2024–25</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="highlight-item">
-          <div class="hi-icon">⚡</div>
-          <div class="hi-text">
-            <h4>Performance Obsessed</h4>
-            <p>Achieved sub-2-second page loads on the Doctor Appointment System with zero double-booking incidents.</p>
+
+        <!-- WORK ANIMATION CANVAS -->
+        <div style="position:relative; background:var(--surface); border:1px solid var(--border);
+                    border-radius:16px; overflow:hidden; padding:0.5rem 0.5rem 0.3rem;
+                    box-shadow:var(--glow);">
+          <div style="font-family:'Fira Code',monospace; font-size:0.65rem; color:var(--muted);
+                      padding:0 0.5rem 0.3rem; display:flex; align-items:center; gap:0.5rem;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#ff5f56;display:inline-block;"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:#27c93f;display:inline-block;"></span>
+            <span style="margin-left:0.3rem;">praveen@dev ~ workspace</span>
+          </div>
+          <canvas id="work-canvas" style="display:block; border-radius:10px;"></canvas>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════ -->
+  <section id="about">
+    <div class="section-wrap">
+      <div class="section-eyebrow">Who I Am</div>
+      <h2 class="section-title">Building <em>Secure</em> Digital Products<br/>with Purpose</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <p>I'm a <strong>Full Stack Developer and MCA graduate (2025)</strong> from Chennai, Tamil Nadu. I bridge front-end precision with back-end robustness — always with a security-first mindset shaped by a formal Diploma in Cyber Security.</p>
+          <p>At <strong>Cognultsoft Analytics</strong>, I built production-grade React.js features and a real-time Doctor Appointment System. At <strong>Queen Bugs Technology</strong>, I delivered 5+ web applications with zero security incidents and earned the <strong>Star Performance Award</strong> for the internship program.</p>
+          <p>I don't just write code — I build things I'm proud to put my name on.</p>
+          <div class="about-pills">
+            <span class="about-pill">React.js / TypeScript</span>
+            <span class="about-pill">PHP / CodeIgniter</span>
+            <span class="about-pill">MySQL</span>
+            <span class="about-pill">CSRF / RBAC / SQL Injection</span>
+            <span class="about-pill">Firebase</span>
+            <span class="about-pill">Git / GitHub</span>
+            <span class="about-pill">Power BI</span>
           </div>
         </div>
-        <div class="highlight-item">
-          <div class="hi-icon">🏆</div>
-          <div class="hi-text">
-            <h4>Star Performance Award</h4>
-            <p>Recognised for outstanding contribution and consistent delivery quality at Queen Bugs Technology, 2024–25.</p>
+
+        <div class="highlight-stack reveal-right">
+          <div class="highlight-card">
+            <div class="hl-icon">🛡️</div>
+            <div class="hl-text">
+              <h4>Security-First Development</h4>
+              <p>Diploma in Cyber Security · CSRF, RBAC, PDO, session hardening baked in by default.</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-wrap">
-    <div class="section-label">Technical Arsenal</div>
-    <h2 class="section-title">Skills &amp; <em>Technologies</em></h2>
-    <div class="skills-grid reveal">
-      <div class="skill-card">
-        <div class="skill-cat">Frontend</div>
-        <div class="skill-items">
-          <span class="skill-tag">React.js</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS3</span>
-          <span class="skill-tag">Bootstrap</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-row"><div class="skill-bar-name">React.js</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div><div class="skill-bar-pct">85%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">TypeScript</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="78"></div></div><div class="skill-bar-pct">78%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">HTML/CSS</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div><div class="skill-bar-pct">90%</div></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Backend</div>
-        <div class="skill-items">
-          <span class="skill-tag">PHP</span>
-          <span class="skill-tag">CodeIgniter MVC</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">REST APIs</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-row"><div class="skill-bar-name">PHP</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="82"></div></div><div class="skill-bar-pct">82%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">CodeIgniter</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="78"></div></div><div class="skill-bar-pct">78%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">Python</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="65"></div></div><div class="skill-bar-pct">65%</div></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Database & Tools</div>
-        <div class="skill-items">
-          <span class="skill-tag">MySQL</span>
-          <span class="skill-tag">Firebase</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">Power BI</span>
-          <span class="skill-tag">MS Office</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-row"><div class="skill-bar-name">MySQL</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div><div class="skill-bar-pct">85%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">Git/GitHub</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div><div class="skill-bar-pct">80%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">Firebase</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div><div class="skill-bar-pct">70%</div></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Security & Concepts</div>
-        <div class="skill-items">
-          <span class="skill-tag">CSRF Protection</span>
-          <span class="skill-tag">RBAC</span>
-          <span class="skill-tag">SQL Injection Prevention</span>
-          <span class="skill-tag">Secure Sessions</span>
-          <span class="skill-tag">OOP</span>
-          <span class="skill-tag">MVC</span>
-          <span class="skill-tag">PDO</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-row"><div class="skill-bar-name">Web Security</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="88"></div></div><div class="skill-bar-pct">88%</div></div>
-          <div class="skill-bar-row"><div class="skill-bar-name">OOP/MVC</div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="82"></div></div><div class="skill-bar-pct">82%</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-wrap">
-    <div class="section-label">Work History</div>
-    <h2 class="section-title">Professional <em>Experience</em></h2>
-    <div class="exp-timeline reveal">
-      <div class="exp-item">
-        <div class="exp-header">
-          <div class="exp-role">Full Stack Developer Intern</div>
-          <div class="exp-period">Jan 2026 – May 2026</div>
-        </div>
-        <div class="exp-company">Cognultsoft Analytics</div>
-        <div class="exp-location">📍 Bengaluru, Karnataka</div>
-        <ul class="exp-bullets">
-          <li>Contributed to development and maintenance of full-stack features using React.js (TypeScript) and RESTful APIs as part of a production application.</li>
-          <li>Assisted in building a Doctor Appointment Management System with real-time booking, rescheduling, and cancellation functionality, streamlining scheduling and reducing appointment conflicts.</li>
-        </ul>
-      </div>
-      <div class="exp-item">
-        <div class="exp-header">
-          <div class="exp-role">Web Development Intern</div>
-          <div class="exp-period">Dec 2024 – Feb 2025</div>
-        </div>
-        <div class="exp-company">Queen Bugs Technology</div>
-        <div class="exp-location">📍 Bengaluru, Karnataka</div>
-        <ul class="exp-bullets">
-          <li>Developed 5+ sample web applications using PHP and CodeIgniter MVC framework; managed MySQL database schemas across 10+ tables per project.</li>
-          <li>Built responsive front-end interfaces using HTML5, CSS3, and Bootstrap, applying security best practices including PDO, CSRF protection, and session management — zero reported vulnerabilities.</li>
-        </ul>
-        <div class="award-badge">⭐ Star Performance Award — Internship Program 2024–25</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-wrap">
-    <div class="section-label">What I've Built</div>
-    <h2 class="section-title">Featured <em>Projects</em></h2>
-    <div class="projects-grid reveal">
-      <div class="project-card">
-        <div class="proj-icon">🏥</div>
-        <div class="proj-title">Doctor Appointment Management System</div>
-        <div class="proj-desc">Full-stack appointment platform with real-time booking, cancellation flows, and a live availability dashboard built for a production healthcare environment.</div>
-        <div class="proj-metrics">
-          <div class="metric">Zero double-bookings</div>
-          <div class="metric">&lt;2s page load time</div>
-          <div class="metric">Real-time availability</div>
-        </div>
-        <div class="proj-stack">
-          <span class="stack-tag">React.js</span>
-          <span class="stack-tag">TypeScript</span>
-          <span class="stack-tag">REST API</span>
-          <span class="stack-tag">CSS</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="proj-icon">🔬</div>
-        <div class="proj-title">SHC-GCC Lab Management System</div>
-        <div class="proj-desc">Secure inventory management system for 200+ lab assets with role-based access control, secure authentication, CSRF protection, and parameterized SQL queries.</div>
-        <div class="proj-metrics">
-          <div class="metric">200+ assets managed</div>
-          <div class="metric">Zero security incidents</div>
-          <div class="metric">Full RBAC implemented</div>
-        </div>
-        <div class="proj-stack">
-          <span class="stack-tag">PHP</span>
-          <span class="stack-tag">MySQL</span>
-          <span class="stack-tag">HTML5</span>
-          <span class="stack-tag">CSS3</span>
-          <span class="stack-tag">JavaScript</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-wrap">
-    <div class="section-label">Academic Background</div>
-    <h2 class="section-title">Education &amp; <em>Credentials</em></h2>
-    <div class="edu-grid reveal">
-      <div class="edu-card">
-        <div class="edu-year">Aug 2023 – Apr 2025</div>
-        <div class="edu-degree">Master of Computer Applications (MCA)</div>
-        <div class="edu-school">Sacred Heart College (Autonomous), Tirupattur</div>
-        <div class="gpa-badge">GPA 7.78 / 10</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-year">Aug 2023 – Apr 2025</div>
-        <div class="edu-degree">Diploma in Cyber Security</div>
-        <div class="edu-school">Sacred Heart College (Autonomous), Tirupattur</div>
-        <div class="gpa-badge">GPA 8.12 / 10</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-year">Jul 2020 – May 2023</div>
-        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-        <div class="edu-school">Don Bosco College, Yelagiri Hills</div>
-        <div class="gpa-badge">GPA 7.20 / 10</div>
-      </div>
-    </div>
-
-    <div style="margin-top: 3rem;">
-      <div class="section-label">Certifications</div>
-      <div class="cert-list reveal">
-        <div class="cert-item">
-          <div class="cert-icon">📱</div>
-          <div><div class="cert-name">Mobile Application Development</div><div class="cert-org">Sacred Heart College</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">🐍</div>
-          <div><div class="cert-name">Data Science with Python</div><div class="cert-org">Sacred Heart College</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">🌐</div>
-          <div><div class="cert-name">Tamil – Native Fluency</div><div class="cert-org">Language</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">🇬🇧</div>
-          <div><div class="cert-name">English – Professional Fluency</div><div class="cert-org">Language</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HR EXPERT TIPS -->
-<section id="hr-tips">
-  <div class="section-wrap">
-    <div class="section-label">HR Perspective</div>
-    <h2 class="section-title">What <em>Hiring Managers</em> Will Notice</h2>
-    <p style="color:var(--muted); max-width:600px; margin-top:0.5rem; font-size:0.92rem;">Expert insights on Praveen's profile — strengths to highlight and areas to sharpen before the next interview.</p>
-    <div class="tips-grid reveal">
-      <div class="tip-card">
-        <div class="tip-num">01</div>
-        <div class="tip-title">✅ Quantified Impact — Strong Signal</div>
-        <div class="tip-body">Metrics like "zero double-bookings," "sub-2s load," and "zero security incidents" make claims verifiable. This is exactly what screeners look for when shortlisting. Keep these front-and-center on your resume and in interviews.</div>
-        <span class="tip-tag">Strength</span>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">02</div>
-        <div class="tip-title">✅ Security Diploma + Internship = Rare Combo</div>
-        <div class="tip-body">Most fresh developers don't hold a Cyber Security Diploma alongside their MCA. Pairing that with zero reported vulnerabilities in production code is a compelling differentiator — especially for fintech, healthtech, or enterprise roles.</div>
-        <span class="tip-tag">Differentiator</span>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">03</div>
-        <div class="tip-title">⚡ Add GitHub Links to Projects</div>
-        <div class="tip-body">HR teams and tech leads will want to verify your code quality firsthand. Public GitHub repos with README files, commit history, and live demos will close deals that your resume opens. This is the single highest-ROI action right now.</div>
-        <span class="tip-tag">Action Item</span>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">04</div>
-        <div class="tip-title">⚡ Prepare STAR Stories for Each Bullet</div>
-        <div class="tip-body">The Doctor Appointment System and Lab Management System are interview gold. Prepare full Situation-Task-Action-Result narratives for each. Decision-makers in technical interviews will probe deeply — have numbers and trade-offs ready.</div>
-        <span class="tip-tag">Interview Prep</span>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">05</div>
-        <div class="tip-title">✅ Star Performance Award Stands Out</div>
-        <div class="tip-body">Formal awards from internships signal reliability and collaboration — qualities hard to screen for. Mention this early in introductions, not just on paper. It signals you operate above the baseline of most interns at your level.</div>
-        <span class="tip-tag">Strength</span>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">06</div>
-        <div class="tip-title">💡 Expand the Tech Stack Visibly</div>
-        <div class="tip-body">Consider adding a small Next.js or Node.js project to your portfolio — many mid-size product companies run on this stack. Even a weekend side project demonstrates curiosity and adaptability, which HRs specifically filter for in junior roles.</div>
-        <span class="tip-tag">Growth Tip</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESUME DOWNLOAD -->
-<section id="resume">
-  <div class="section-wrap" style="text-align:center;">
-    <div class="section-label" style="justify-content:center;">Resume</div>
-    <h2 class="section-title" style="text-align:center;">Download My <em>Resume</em></h2>
-    <p style="color:var(--muted); max-width:480px; margin:0.8rem auto 2.5rem; font-size:0.92rem;">Full PDF version with detailed work history, skills, and project highlights.</p>
-    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;" class="reveal">
-      <a class="btn-primary" href="Praveen_Samuvel_CV.pdf" download style="display:inline-flex;align-items:center;gap:0.6rem;">
-        ⬇ Download CV (PDF)
-      </a>
-      <a class="btn-secondary" href="https://linkedin.com/in/samuvel-86667b208" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.6rem;">
-        🔗 View LinkedIn
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-wrap">
-    <div class="section-label">Let's Connect</div>
-    <h2 class="section-title">Get in <em>Touch</em></h2>
-    <div class="contact-grid reveal">
-      <div class="contact-info">
-        <p>I'm actively looking for full-time Full Stack Developer roles. If you're building something interesting or have an open position, I'd love to connect.</p>
-        <div class="contact-items">
-          <a class="contact-item" href="tel:+916369283239">
-            <div class="ci-icon">📞</div>
-            <div><div class="ci-label">Phone</div><div class="ci-val">+91 6369 283 239</div></div>
-          </a>
-          <a class="contact-item" href="mailto:samuvel9123@gmail.com">
-            <div class="ci-icon">✉️</div>
-            <div><div class="ci-label">Email</div><div class="ci-val">samuvel9123@gmail.com</div></div>
-          </a>
-          <a class="contact-item" href="https://linkedin.com/in/samuvel-86667b208" target="_blank" rel="noopener">
-            <div class="ci-icon">🔗</div>
-            <div><div class="ci-label">LinkedIn</div><div class="ci-val">linkedin.com/in/samuvel-86667b208</div></div>
-          </a>
-          <div class="contact-item" style="cursor:default;">
-            <div class="ci-icon">📍</div>
-            <div><div class="ci-label">Location</div><div class="ci-val">Chennai, Tamil Nadu</div></div>
+          <div class="highlight-card">
+            <div class="hl-icon">⚡</div>
+            <div class="hl-text">
+              <h4>Performance Obsessed</h4>
+              <p>Sub-2s page loads · Zero double-bookings · Real-time availability on production systems.</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <div class="hl-icon">🏆</div>
+            <div class="hl-text">
+              <h4>Star Performance Award</h4>
+              <p>Recognised at Queen Bugs Technology Internship Program 2024–25 for exceptional delivery quality.</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <div class="hl-icon">🎓</div>
+            <div class="hl-text">
+              <h4>MCA + Cyber Security Diploma</h4>
+              <p>Dual credential from Sacred Heart College — uncommon combination for a fresher.</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="contact-form">
-        <div class="form-row">
-          <div class="form-group"><label>NAME</label><input type="text" placeholder="Your name" /></div>
-          <div class="form-group"><label>EMAIL</label><input type="email" placeholder="your@email.com" /></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SKILLS SECTION
+  ═══════════════════════════════════════ -->
+  <section id="skills">
+    <div class="section-wrap">
+      <div class="section-eyebrow">Technical Arsenal</div>
+      <h2 class="section-title">Skills &amp; <em>Technologies</em></h2>
+
+      <div class="skills-grid">
+
+        <!-- Frontend -->
+        <div class="skill-card reveal">
+          <span class="skill-cat-icon">🖥️</span>
+          <div class="skill-cat">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+          </div>
+          <div class="skill-bars">
+            <div class="bar-row"><span class="bar-label">React.js</span><div class="bar-track"><div class="bar-fill" data-w="85"></div></div><span class="bar-pct">85%</span></div>
+            <div class="bar-row"><span class="bar-label">TypeScript</span><div class="bar-track"><div class="bar-fill" data-w="78"></div></div><span class="bar-pct">78%</span></div>
+            <div class="bar-row"><span class="bar-label">HTML/CSS</span><div class="bar-track"><div class="bar-fill" data-w="90"></div></div><span class="bar-pct">90%</span></div>
+          </div>
         </div>
-        <div class="form-group"><label>SUBJECT</label><input type="text" placeholder="Job opportunity / Collaboration / Other" /></div>
-        <div class="form-group"><label>MESSAGE</label><textarea placeholder="Tell me about the role or project..."></textarea></div>
-        <button class="btn-submit" onclick="handleFormSubmit(this)">Send Message →</button>
+
+        <!-- Backend -->
+        <div class="skill-card reveal">
+          <span class="skill-cat-icon">⚙️</span>
+          <div class="skill-cat">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">CodeIgniter MVC</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+          <div class="skill-bars">
+            <div class="bar-row"><span class="bar-label">PHP</span><div class="bar-track"><div class="bar-fill" data-w="82"></div></div><span class="bar-pct">82%</span></div>
+            <div class="bar-row"><span class="bar-label">CodeIgniter</span><div class="bar-track"><div class="bar-fill" data-w="78"></div></div><span class="bar-pct">78%</span></div>
+            <div class="bar-row"><span class="bar-label">Python</span><div class="bar-track"><div class="bar-fill" data-w="65"></div></div><span class="bar-pct">65%</span></div>
+          </div>
+        </div>
+
+        <!-- Database & Tools -->
+        <div class="skill-card reveal">
+          <span class="skill-cat-icon">🗄️</span>
+          <div class="skill-cat">Database &amp; Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">MS Office</span>
+          </div>
+          <div class="skill-bars">
+            <div class="bar-row"><span class="bar-label">MySQL</span><div class="bar-track"><div class="bar-fill" data-w="85"></div></div><span class="bar-pct">85%</span></div>
+            <div class="bar-row"><span class="bar-label">Git/GitHub</span><div class="bar-track"><div class="bar-fill" data-w="80"></div></div><span class="bar-pct">80%</span></div>
+            <div class="bar-row"><span class="bar-label">Firebase</span><div class="bar-track"><div class="bar-fill" data-w="70"></div></div><span class="bar-pct">70%</span></div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="skill-card reveal">
+          <span class="skill-cat-icon">🔒</span>
+          <div class="skill-cat">Security &amp; Concepts</div>
+          <div class="skill-tags">
+            <span class="skill-tag">CSRF Protection</span>
+            <span class="skill-tag">RBAC</span>
+            <span class="skill-tag">SQL Injection Prevention</span>
+            <span class="skill-tag">Secure Sessions</span>
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">MVC</span>
+            <span class="skill-tag">PDO</span>
+          </div>
+          <div class="skill-bars">
+            <div class="bar-row"><span class="bar-label">Web Security</span><div class="bar-track"><div class="bar-fill" data-w="88"></div></div><span class="bar-pct">88%</span></div>
+            <div class="bar-row"><span class="bar-label">OOP / MVC</span><div class="bar-track"><div class="bar-fill" data-w="82"></div></div><span class="bar-pct">82%</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>Built with precision &amp; passion by <span>Praveen Samuvel A</span> · Full Stack Developer · Chennai, Tamil Nadu</p>
-</footer>
+  <!-- ═══════════════════════════════════════
+       EXPERIENCE SECTION
+  ═══════════════════════════════════════ -->
+  <section id="experience">
+    <div class="section-wrap">
+      <div class="section-eyebrow">Work History</div>
+      <h2 class="section-title">Professional <em>Experience</em></h2>
 
-<script>
-/* ─── PARTICLE BG ─── */
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [], lines = [];
-function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
-resize(); window.addEventListener('resize', resize);
+      <div class="exp-timeline">
 
-class Particle {
-  constructor() { this.reset(); }
-  reset() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
-    this.r = Math.random() * 1.8 + 0.5;
-    this.a = Math.random() * 0.5 + 0.2;
-  }
-  update() {
-    this.x += this.vx; this.y += this.vy;
-    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-  }
-}
-for (let i = 0; i < 90; i++) particles.push(new Particle());
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div class="exp-role">Full Stack Developer Intern</div>
+            <div class="exp-badge">Jan 2026 – May 2026</div>
+          </div>
+          <div class="exp-company">Cognultsoft Analytics</div>
+          <div class="exp-loc">📍 Bengaluru, Karnataka</div>
+          <ul class="exp-points">
+            <li>Contributed to development and maintenance of full-stack features using React.js (TypeScript) and RESTful APIs as part of a live production application.</li>
+            <li>Assisted in building a Doctor Appointment Management System with real-time booking, rescheduling, and cancellation — eliminating appointment conflicts and achieving sub-2s load times.</li>
+          </ul>
+        </div>
 
-let mouse = { x: W/2, y: H/2 };
-window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div class="exp-role">Web Development Intern</div>
+            <div class="exp-badge">Dec 2024 – Feb 2025</div>
+          </div>
+          <div class="exp-company">Queen Bugs Technology</div>
+          <div class="exp-loc">📍 Bengaluru, Karnataka</div>
+          <ul class="exp-points">
+            <li>Developed 5+ web applications using PHP and CodeIgniter MVC; managed MySQL schemas across 10+ tables per project.</li>
+            <li>Delivered responsive front-ends with HTML5, CSS3, Bootstrap and applied PDO, CSRF protection, and secure session management — zero reported vulnerabilities.</li>
+          </ul>
+          <div class="award-chip">⭐ Star Performance Award — Internship Program 2024–25</div>
+        </div>
 
-function animate() {
-  requestAnimationFrame(animate);
-  ctx.clearRect(0, 0, W, H);
-  particles.forEach(p => { p.update(); });
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i+1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 110) {
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(0,212,255,${0.12*(1-dist/110)})`;
-        ctx.lineWidth = 0.6;
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-      }
-    }
-    const dx = particles[i].x - mouse.x;
-    const dy = particles[i].y - mouse.y;
-    const d = Math.sqrt(dx*dx + dy*dy);
-    if (d < 160) {
-      ctx.beginPath();
-      ctx.strokeStyle = `rgba(0,212,255,${0.25*(1-d/160)})`;
-      ctx.lineWidth = 0.8;
-      ctx.moveTo(particles[i].x, particles[i].y);
-      ctx.lineTo(mouse.x, mouse.y);
-      ctx.stroke();
-    }
-    ctx.beginPath();
-    ctx.arc(particles[i].x, particles[i].y, particles[i].r, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(0,212,255,${particles[i].a})`;
-    ctx.fill();
-  }
-}
-animate();
+      </div>
+    </div>
+  </section>
 
-/* ─── TYPING EFFECT ─── */
-const roles = ['Full Stack Developer', 'React.js Engineer', 'PHP & CodeIgniter Dev', 'Cyber Security Graduate', 'MCA 2025'];
-let ri = 0, ci = 0, deleting = false;
-const el = document.getElementById('typed-role');
-function type() {
-  const word = roles[ri];
-  if (!deleting) {
-    el.textContent = word.slice(0, ++ci);
-    if (ci === word.length) { deleting = true; setTimeout(type, 1500); return; }
-  } else {
-    el.textContent = word.slice(0, --ci);
-    if (ci === 0) { deleting = false; ri = (ri+1) % roles.length; }
-  }
-  setTimeout(type, deleting ? 60 : 100);
-}
-type();
+  <!-- ═══════════════════════════════════════
+       PROJECTS SECTION
+  ═══════════════════════════════════════ -->
+  <section id="projects">
+    <div class="section-wrap">
+      <div class="section-eyebrow">What I've Built</div>
+      <h2 class="section-title">Featured <em>Projects</em></h2>
 
-/* ─── SCROLL REVEAL ─── */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.12 });
-revealEls.forEach(el => io.observe(el));
+      <div class="projects-grid">
 
-/* ─── SKILL BAR ANIMATION ─── */
-const barIO = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.w + '%';
+        <!-- Project 1 -->
+        <div class="project-card reveal">
+          <div class="proj-header">
+            <div class="proj-icon">🏥</div>
+            <div class="proj-links">
+              <span class="proj-link" title="Private production codebase">🔒 Private</span>
+            </div>
+          </div>
+          <div class="proj-title">Doctor Appointment Management System</div>
+          <div class="proj-desc">Full-stack appointment platform with real-time booking, cancellation flows, and a live availability dashboard — built as a production healthcare application at Cognultsoft Analytics.</div>
+          <div class="proj-metrics">
+            <div class="proj-metric">Zero double-bookings</div>
+            <div class="proj-metric">&lt;2s page load</div>
+            <div class="proj-metric">Real-time dashboard</div>
+          </div>
+          <div class="proj-stack">
+            <span class="stack-chip">React.js</span>
+            <span class="stack-chip">TypeScript</span>
+            <span class="stack-chip">REST API</span>
+            <span class="stack-chip">CSS3</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal">
+          <div class="proj-header">
+            <div class="proj-icon">🔬</div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://github.com/Clouds-3/Lab-Management-System-in-PHP" target="_blank" rel="noopener" title="View on GitHub">⎇</a>
+            </div>
+          </div>
+          <div class="proj-title">SHC-GCC Lab Management System</div>
+          <div class="proj-desc">Secure inventory management system for 200+ lab assets with role-based access control, secure authentication, CSRF protection, and parameterized SQL queries.</div>
+          <div class="proj-metrics">
+            <div class="proj-metric">200+ assets managed</div>
+            <div class="proj-metric">Zero security incidents</div>
+            <div class="proj-metric">Full RBAC implemented</div>
+          </div>
+          <div class="proj-stack">
+            <span class="stack-chip">PHP</span>
+            <span class="stack-chip">MySQL</span>
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal">
+          <div class="proj-header">
+            <div class="proj-icon">🥗</div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://github.com/Clouds-3/NutriPlan-Fitness" target="_blank" rel="noopener" title="View on GitHub">⎇</a>
+            </div>
+          </div>
+          <div class="proj-title">NutriPlan Fitness</div>
+          <div class="proj-desc">Free static meal planner that generates a personalized meal plan, grocery list, and macro breakdown based on diet type and calorie goal. BMR/TDEE calculator, 7-day weekly view, dark mode, print export — zero dependencies.</div>
+          <div class="proj-metrics">
+            <div class="proj-metric">BMR/TDEE Calculator</div>
+            <div class="proj-metric">7-day weekly planner</div>
+            <div class="proj-metric">Grocery list &amp; macros</div>
+            <div class="proj-metric">No frameworks · No backend</div>
+          </div>
+          <div class="proj-stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">Static</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal">
+          <div class="proj-header">
+            <div class="proj-icon">🐍</div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://github.com/Clouds-3/Python-Computer-Lab-Management-System-" target="_blank" rel="noopener" title="View on GitHub">⎇</a>
+            </div>
+          </div>
+          <div class="proj-title">Python Computer Lab Management System</div>
+          <div class="proj-desc">Desktop Windows application for tracking and managing computer lab inventory and stock — built with Python for offline, on-premise lab administration.</div>
+          <div class="proj-metrics">
+            <div class="proj-metric">Desktop application</div>
+            <div class="proj-metric">Inventory tracking</div>
+            <div class="proj-metric">Offline-first</div>
+          </div>
+          <div class="proj-stack">
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">Desktop App</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section id="education">
+    <div class="section-wrap">
+      <div class="section-eyebrow">Academic Background</div>
+      <h2 class="section-title">Education &amp; <em>Credentials</em></h2>
+
+      <div class="edu-grid">
+
+        <div class="edu-card reveal">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-period">Aug 2023 – Apr 2025</div>
+          <div class="edu-degree">Master of Computer Applications (MCA)</div>
+          <div class="edu-school">Sacred Heart College (Autonomous), Tirupattur</div>
+          <div class="gpa-pill">GPA 7.78 / 10</div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon">🛡️</div>
+          <div class="edu-period">Aug 2023 – Apr 2025</div>
+          <div class="edu-degree">Diploma in Cyber Security</div>
+          <div class="edu-school">Sacred Heart College (Autonomous), Tirupattur</div>
+          <div class="gpa-pill">GPA 8.12 / 10</div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon">💻</div>
+          <div class="edu-period">Jul 2020 – May 2023</div>
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">Don Bosco College, Yelagiri Hills</div>
+          <div class="gpa-pill">GPA 7.20 / 10</div>
+        </div>
+
+      </div>
+
+      <!-- Certifications -->
+      <div class="certs-wrap reveal">
+        <div class="section-eyebrow" style="margin-top:0;">Certifications &amp; Languages</div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-ico">📱</div>
+            <div><div class="cert-name">Mobile Application Development</div><div class="cert-issuer">Sacred Heart College</div></div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-ico">🐍</div>
+            <div><div class="cert-name">Data Science with Python</div><div class="cert-issuer">Sacred Heart College</div></div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-ico">🌐</div>
+            <div><div class="cert-name">Tamil — Native Fluency</div><div class="cert-issuer">Language</div></div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-ico">🇬🇧</div>
+            <div><div class="cert-name">English — Professional Fluency</div><div class="cert-issuer">Language</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HR TIPS SECTION
+  ═══════════════════════════════════════ -->
+  <section id="hr-tips">
+    <div class="section-wrap">
+      <div class="section-eyebrow">HR Perspective</div>
+      <h2 class="section-title">What <em>Hiring Managers</em> Will Notice</h2>
+      <p class="tips-intro">Candid insights on Praveen's profile — what stands out to recruiters and what to sharpen before your next interview.</p>
+
+      <div class="tips-grid">
+
+        <div class="tip-card reveal">
+          <div class="tip-num">01</div>
+          <div class="tip-title">✅ Quantified Impact Signals Quality</div>
+          <div class="tip-body">Metrics like "zero double-bookings," "sub-2s load," and "200+ assets managed" make every claim verifiable. Screeners shortlist on numbers — keep these front-and-center.</div>
+          <span class="tip-type strength">Strength</span>
+        </div>
+
+        <div class="tip-card reveal">
+          <div class="tip-num">02</div>
+          <div class="tip-title">✅ Security Diploma + Dev Internship = Rare</div>
+          <div class="tip-body">Most freshers don't hold a Cyber Security Diploma alongside MCA. This combo with zero production vulnerabilities is a strong differentiator for fintech, healthtech, and enterprise roles.</div>
+          <span class="tip-type diff">Differentiator</span>
+        </div>
+
+        <div class="tip-card reveal">
+          <div class="tip-num">03</div>
+          <div class="tip-title">⚡ Link GitHub Repos to Every Project</div>
+          <div class="tip-body">Tech leads will want to audit code quality. Public repos with clean READMEs, commit history, and live demos convert shortlists into offers. Highest ROI action available right now.</div>
+          <span class="tip-type action">Action Item</span>
+        </div>
+
+        <div class="tip-card reveal">
+          <div class="tip-num">04</div>
+          <div class="tip-title">⚡ Prepare STAR Stories for Each Project</div>
+          <div class="tip-body">The Appointment System and Lab Management System are interview gold. Build Situation-Task-Action-Result narratives for each. Interviewers will probe — have trade-off decisions and numbers ready.</div>
+          <span class="tip-type action">Interview Prep</span>
+        </div>
+
+        <div class="tip-card reveal">
+          <div class="tip-num">05</div>
+          <div class="tip-title">✅ Star Performance Award Speaks First</div>
+          <div class="tip-body">Formal recognition during an internship signals reliability and collaboration beyond technical skills. Bring this up in introductions, not just on paper — it sets you apart from peers at the same level.</div>
+          <span class="tip-type strength">Strength</span>
+        </div>
+
+        <div class="tip-card reveal">
+          <div class="tip-num">06</div>
+          <div class="tip-title">💡 Add a Next.js or Node.js Side Project</div>
+          <div class="tip-body">Many mid-size product companies run on this stack. Even a weekend project demonstrates curiosity and range — specifically what HRs filter for when comparing similarly-qualified junior candidates.</div>
+          <span class="tip-type growth">Growth Tip</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       RESUME DOWNLOAD SECTION
+  ═══════════════════════════════════════ -->
+  <section id="resume">
+    <div class="section-wrap">
+      <div class="resume-inner reveal">
+        <div class="section-eyebrow" style="justify-content:center;">Resume</div>
+        <h2 class="section-title" style="text-align:center;">View &amp; Download My <em>Resume</em></h2>
+        <span class="resume-icon">📄</span>
+        <p class="resume-desc">Full PDF with complete work history, skills, projects, and certifications.</p>
+        <p style="font-size:0.8rem; opacity:0.6; margin-top:-0.5rem;">Last updated: June 2026</p>
+        <div class="resume-btns">
+          <a class="btn-primary" href="https://drive.google.com/file/d/1FnW_2ujOb0gyFWokFIcsoI9aXSmkoxJ0/view?usp=sharing" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+          <a class="btn-secondary" href="https://linkedin.com/in/samuvel-86667b208" target="_blank" rel="noopener">🔗 LinkedIn Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════ -->
+  <section id="contact">
+    <div class="section-wrap">
+      <div class="section-eyebrow">Let's Connect</div>
+      <h2 class="section-title">Get in <em>Touch</em></h2>
+
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="reveal-left">
+          <p class="contact-intro">I'm actively looking for full-time Full Stack Developer roles. If you're building something exciting or have an open position — I'd love to hear from you.</p>
+          <div class="contact-list">
+            <a class="contact-row" href="tel:+916369283239">
+              <div class="cr-icon">📞</div>
+              <div><div class="cr-label">Phone</div><div class="cr-val">+91 6369 283 239</div></div>
+            </a>
+            <a class="contact-row" href="mailto:samuvel9123@gmail.com">
+              <div class="cr-icon">✉️</div>
+              <div><div class="cr-label">Email</div><div class="cr-val">samuvel9123@gmail.com</div></div>
+            </a>
+            <a class="contact-row" href="https://github.com/Clouds-3" target="_blank" rel="noopener">
+              <div class="cr-icon">⎇</div>
+              <div><div class="cr-label">GitHub</div><div class="cr-val">github.com/Clouds-3</div></div>
+            </a>
+            <a class="contact-row" href="https://linkedin.com/in/samuvel-86667b208" target="_blank" rel="noopener">
+              <div class="cr-icon">🔗</div>
+              <div><div class="cr-label">LinkedIn</div><div class="cr-val">linkedin.com/in/samuvel-86667b208</div></div>
+            </a>
+            <div class="contact-row" style="cursor:default;">
+              <div class="cr-icon">📍</div>
+              <div><div class="cr-label">Location</div><div class="cr-val">Chennai, Tamil Nadu, India</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form reveal-right" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" name="subject" placeholder="Job opportunity / Collaboration / Other" />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell me about the role or project..." required></textarea>
+          </div>
+          <button class="btn-submit" id="submit-btn" type="submit">Send Message →</button>
+          <p id="form-status" style="margin-top:0.75rem; font-size:0.85rem; display:none;"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">&lt;PS /&gt;</div>
+    <p>Built with precision &amp; passion by <span>Praveen Samuvel A</span><br/>
+    Full Stack Developer · Chennai, Tamil Nadu · <span>Available for hire</span></p>
+    <p style="margin-top:0.5rem; font-size:0.8rem;">
+      <a href="https://github.com/Clouds-3/Sam-Portfolio" target="_blank" rel="noopener" style="opacity:0.7;">⎇ View source on GitHub</a>
+    </p>
+  </footer>
+
+  <!-- Photo data (embedded base64) -->
+  <script src="assets/photo_data.js"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      const bar = document.getElementById('scroll-progress');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // Contact form submission (Formspree)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const status = document.getElementById('form-status');
+        const btn = document.getElementById('submit-btn');
+        const data = new FormData(contactForm);
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+          const res = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            status.style.display = 'block';
+            status.style.color = '#22c55e';
+            status.textContent = '✓ Message sent! I\'ll get back to you soon.';
+            contactForm.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          status.style.display = 'block';
+          status.style.color = '#ef4444';
+          status.textContent = '✕ Something went wrong. Please email me directly at samuvel9123@gmail.com.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Send Message →';
+        }
       });
     }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.skill-card').forEach(c => barIO.observe(c));
+  </script>
 
-/* ─── FORM SUBMIT ─── */
-function handleFormSubmit(btn) {
-  btn.textContent = '✓ Message Sent!';
-  btn.style.background = 'linear-gradient(135deg, #06ffa5, #00d4ff)';
-  btn.style.color = '#050a14';
-  setTimeout(() => {
-    btn.textContent = 'Send Message →';
-    btn.style.background = '';
-    btn.style.color = '';
-  }, 3000);
-}
-
-/* ─── 3D TILT on project cards ─── */
-document.querySelectorAll('.project-card, .skill-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `perspective(600px) rotateX(${-y*8}deg) rotateY(${x*8}deg) translateY(-4px)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-</script>
 </body>
 </html>
