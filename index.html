@@ -21,6 +21,205 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ═══════════════════════════════════════
+       MOBILE RESPONSIVE OVERRIDES ONLY
+       Everything below is wrapped in max-width
+       media queries, so desktop (>1024px) is
+       completely untouched.
+  ═══════════════════════════════════════ -->
+  <style>
+    /* ---------- Tablet & below (≤1024px) ---------- */
+    @media (max-width: 1024px) {
+      .hero-stats {
+        flex-wrap: wrap !important;
+        gap: 1rem 1.5rem !important;
+      }
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      .skills-grid,
+      .projects-grid,
+      .edu-grid,
+      .tips-grid,
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    /* ---------- Mobile (≤768px) ---------- */
+    @media (max-width: 768px) {
+
+      html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+      }
+
+      .section-wrap {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+      }
+
+      /* Nav: hide desktop links, show hamburger */
+      nav {
+        padding: 0.9rem 1.25rem !important;
+      }
+      .nav-links,
+      .nav-cta {
+        display: none !important;
+      }
+      .hamburger {
+        display: flex !important;
+      }
+
+      /* Mobile menu fills viewport nicely */
+      .mobile-menu {
+        width: 78% !important;
+        max-width: 320px !important;
+      }
+
+      /* Hero: stack into a single column, photo first */
+      #hero {
+        flex-direction: column !important;
+        padding: 6.5rem 1.25rem 3rem !important;
+        text-align: center !important;
+        gap: 2.5rem !important;
+      }
+      .hero-right {
+        order: -1 !important;
+        width: 100% !important;
+      }
+      .hero-left {
+        width: 100% !important;
+      }
+      .hero-name {
+        font-size: clamp(2.2rem, 9vw, 3rem) !important;
+        line-height: 1.1 !important;
+      }
+      .hero-role {
+        font-size: 1.1rem !important;
+      }
+      .hero-desc {
+        font-size: 0.95rem !important;
+      }
+      .hero-btns {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+      }
+      .hero-btns a {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+      .hero-stats {
+        justify-content: center !important;
+        width: 100% !important;
+      }
+      .photo-orbit {
+        transform: scale(0.78) !important;
+      }
+      .hero-floating-card {
+        position: static !important;
+        margin-top: 1rem !important;
+      }
+
+      /* Section titles smaller on mobile */
+      .section-title {
+        font-size: clamp(1.6rem, 6vw, 2rem) !important;
+        text-align: center !important;
+      }
+      .section-eyebrow {
+        justify-content: center !important;
+      }
+
+      /* Grids collapse to single column */
+      .about-grid,
+      .contact-grid,
+      .skills-grid,
+      .projects-grid,
+      .edu-grid,
+      .tips-grid,
+      .cert-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .about-pills {
+        justify-content: center !important;
+      }
+
+      /* Forms: stack name/email fields */
+      .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      /* Resume section buttons stack */
+      .resume-btns {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+      }
+      .resume-btns a {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+      .resume-preview-wrap iframe {
+        height: 480px !important;
+      }
+
+      /* Experience timeline header wraps cleanly */
+      .exp-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.4rem !important;
+      }
+
+      /* Contact rows */
+      .contact-row {
+        flex-wrap: wrap !important;
+      }
+
+      footer {
+        padding: 2rem 1.25rem !important;
+        text-align: center !important;
+      }
+    }
+
+    /* ---------- Small mobile (≤480px) ---------- */
+    @media (max-width: 480px) {
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        display: grid !important;
+        width: 100% !important;
+      }
+      .stat {
+        text-align: center !important;
+      }
+      .photo-orbit {
+        transform: scale(0.65) !important;
+      }
+      .tech-badge {
+        font-size: 0.65rem !important;
+        padding: 0.2rem 0.5rem !important;
+      }
+      .skill-tags,
+      .proj-stack,
+      .about-pills {
+        gap: 0.4rem !important;
+      }
+      .resume-preview-wrap iframe {
+        height: 380px !important;
+      }
+      .btn-primary, .btn-secondary, .btn-submit {
+        font-size: 0.9rem !important;
+        padding: 0.8rem 1.25rem !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
